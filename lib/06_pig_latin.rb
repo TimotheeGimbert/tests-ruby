@@ -1,8 +1,14 @@
 def translate(str)
-  voyels = "aeiouy"
-  if str[0].casecmp(voyels) == -1 
-    str += "ay" 
-  else
-    str = str.reverse + "ay"
-  end
+  str
+      .split # [str] each word separated by space put into new array
+      .map {|word| 
+        if word[0].casecmp("aeiouy") == -1 
+          word+="ay" 
+        elsif word[0].casecmp("aeiouy") == 1 && word[1].casecmp("aeiouy") == 1
+          word = word.split('').rotate(2).join + "ay"
+        elsif word[0].casecmp("aeiouy") == 1
+          word = word.reverse + "ay"
+        end
+        }
+      .join(' ')
 end
