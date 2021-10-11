@@ -41,6 +41,9 @@ def add_ay(word)
 end
 
 def rotate_word(word, n=1)
+  if (word[0]=="q" && word[1]=="u") || (word[1]=="q" && word[2]=="u") || (word[2]=="q" && word[3]=="u")
+    n += 1
+  end
   word
       .split('')
       .rotate(n)
