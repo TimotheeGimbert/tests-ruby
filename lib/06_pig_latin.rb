@@ -1,11 +1,11 @@
 def translate(str)
-  if get_nb_words(str) == 1 
-    translate_word(str)
-  else
+  if get_nb_words(str) == 1 # only one word in the string
+    translate_word(str) # the word is translated
+  else # several words in the string
     str
-      .split 
-      .map {|word| word = translate_word(word)}
-      .join(' ')
+      .split # creates an array with each word of the string
+      .map {|word| word = translate_word(word)} # each word of the string is translated
+      .join(' ') # the array of words is joined back as a string space-separated
   end
 end
 
